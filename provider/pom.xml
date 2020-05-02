@@ -3,21 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>diamond</artifactId>
-        <groupId>com.gxn</groupId>
+        <artifactId>wedding</artifactId>
+        <groupId>com.yuexiang</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>diamond.provider</artifactId>
+    <artifactId>wedding.provider</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.gxn</groupId>
-            <artifactId>diamond.task</artifactId>
+            <groupId>com.yuexiang</groupId>
+            <artifactId>wedding.task</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.gxn</groupId>
-            <artifactId>diamond.domain</artifactId>
+            <groupId>com.yuexiang</groupId>
+            <artifactId>wedding.domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yuexiang</groupId>
+            <artifactId>wedding.common</artifactId>
         </dependency>
     </dependencies>
 
@@ -47,7 +51,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.gxn.diamond.AppBootstrap</mainClass>
+                    <mainClass>com.yuexiang.wedding.AppBootstrap</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

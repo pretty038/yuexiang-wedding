@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.gxn</groupId>
-    <artifactId>diamond</artifactId>
+    <groupId>com.yuexiang</groupId>
+    <artifactId>wedding</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
@@ -33,38 +33,38 @@
 
             <!-- 依赖的子工程jar -->
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.domain</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.service</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.biz</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.biz</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.common</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.dao</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.task</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.task</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.gxn</groupId>
-                <artifactId>diamond.tools</artifactId>
+                <groupId>com.yuexiang</groupId>
+                <artifactId>wedding.tools</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

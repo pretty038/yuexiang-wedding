@@ -1,6 +1,6 @@
 server:
   port: 8999
-  displayName: diamond
+  displayName: weddiing
   context-path: /ap
 
 

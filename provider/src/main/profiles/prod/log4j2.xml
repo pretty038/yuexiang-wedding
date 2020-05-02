@@ -4,8 +4,8 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n"/>
         </Console>
-        <RollingRandomAccessFile name="errorLog" fileName="/opt/logs/gxn/diamond/error.log"
-                                 filePattern="/opt/logs/gxn/diamond/old/error.log.%d{yyyy-MM-dd}">
+        <RollingRandomAccessFile name="errorLog" fileName="/opt/logs/yuexiang/wedding/error.log"
+                                 filePattern="/opt/logs/yuexiang/wedding/old/error.log.%d{yyyy-MM-dd}">
             <PatternLayout
                     pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%logger{1.}]:%message%n">
             </PatternLayout>
@@ -13,8 +13,8 @@
                 <TimeBasedTriggeringPolicy/>
             </Policies>
         </RollingRandomAccessFile>
-        <RollingRandomAccessFile name="commonLog" fileName="/opt/logs/gxn/diamond/common.log"
-                                 filePattern="/opt/logs/gxn/diamond/old/common.log.%d{yyyy-MM-dd}">
+        <RollingRandomAccessFile name="commonLog" fileName="/opt/logs/yuexiang/wedding/common.log"
+                                 filePattern="/opt/logs/yuexiang/wedding/old/common.log.%d{yyyy-MM-dd}">
             <PatternLayout
                     pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%logger{1.}]:%message%n">
             </PatternLayout>
@@ -22,8 +22,8 @@
                 <TimeBasedTriggeringPolicy/>
             </Policies>
         </RollingRandomAccessFile>
-        <RollingRandomAccessFile name="taskLog" fileName="/opt/logs/gxn/diamond/task.log"
-                                 filePattern="/opt/logs/gxn/diamond/old/task.log.%d{yyyy-MM-dd}">
+        <RollingRandomAccessFile name="taskLog" fileName="/opt/logs/yuexiang/wedding/task.log"
+                                 filePattern="/opt/logs/yuexiang/wedding/old/task.log.%d{yyyy-MM-dd}">
             <PatternLayout
                     pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%logger{1.}]:%message%n">
             </PatternLayout>

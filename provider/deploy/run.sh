@@ -22,7 +22,7 @@ function init() {
     fi
 
     if [ -z "$WORK_PATH" ]; then
-        WORK_PATH="/opt/work/gxn/$MODULE"
+        WORK_PATH="/opt/work/yuexiang/$MODULE"
     fi
 
     unzip *.zip -d tmp && mv tmp/study.provider* output && rm -rf tmp
@@ -79,7 +79,7 @@ function run() {
 		echo $EXEC_JAVA
 	fi
 
-    $EXEC_JAVA com.gxn.diamond.AppBootstrap >> $LOG_PATH/$MODULE.out.log 2>&1
+    $EXEC_JAVA com.yuexiang.wedding.AppBootstrap >> $LOG_PATH/$MODULE.out.log 2>&1
 }
 
 # ------------------------------------
