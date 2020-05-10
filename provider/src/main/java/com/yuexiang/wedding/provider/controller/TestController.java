@@ -71,16 +71,6 @@ public class TestController {
     }
 
 
-    @RequestMapping(value = "/getappinfo")
-    public AppInfo getAppInfo(){
-        return new AppInfo("眼镜超市","眼镜超市");
-    }
-
-
-    @Autowired
-    CaseService caseService;
-    @RequestMapping(value = "/addcase")
-    public int addCase(Case ca){return caseService.addcase(ca);}
 
 
 
