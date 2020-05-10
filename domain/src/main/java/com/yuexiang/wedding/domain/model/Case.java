@@ -16,7 +16,7 @@ public class Case {
     String description;
     String tags;
     double price;
-    int like;
+    int liked;
     String team;
     int status;
 
