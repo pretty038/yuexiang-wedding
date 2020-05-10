@@ -28,7 +28,7 @@ public class JettyConfig {
     @ConditionalOnMissingBean({JettyServletWebServerFactory.class})
     public JettyServletWebServerFactory servletContainerFactory(
             @Value("${server.port}") int port,
-            @Value("${server.displayName}") String displayName,
+            @Value("${server.display-name}") String displayName,
             @Value("${server.context-path}") String content,
             @Value("${jetty.threadPool.maxThreads}") final String maxThreads,
             @Value("${jetty.threadPool.minThreads}") final String minThreads,
