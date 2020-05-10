@@ -19,7 +19,9 @@ public class OrderService {
         System.out.println(order);
          if(orderDAO.addOrder(order)){
              return order.getId();
-         }else return -1;
+         }else {
+             return -1;
+         }
     }
 
     public List<OrderVO> getOrderByUser(int userId){

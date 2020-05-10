@@ -3,7 +3,9 @@ package com.yuexiang.wedding.provider.controller;
 
 
 import com.yuexiang.wedding.domain.model.AppInfo;
+import com.yuexiang.wedding.domain.model.Case;
 import com.yuexiang.wedding.domain.model.Image;
+import com.yuexiang.wedding.service.impl.CaseService;
 import com.yuexiang.wedding.service.impl.FileService;
 import com.yuexiang.wedding.service.impl.ImageSrevice;
 import lombok.Cleanup;
@@ -73,6 +75,12 @@ public class TestController {
     public AppInfo getAppInfo(){
         return new AppInfo("眼镜超市","眼镜超市");
     }
+
+
+    @Autowired
+    CaseService caseService;
+    @RequestMapping(value = "/addcase")
+    public int addCase(Case ca){return caseService.addcase(ca);}
 
 
 

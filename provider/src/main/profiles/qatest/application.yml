@@ -1,7 +1,7 @@
 server:
   port: 8999
-  displayName: weddiing
-  context-path: /ap
+  display-name: wedding
+  context-path: /wedding
 
 
 
@@ -17,7 +17,7 @@ spring:
 #        url: jdbc:mysql://maisuosi.mysql.rds.aliyuncs.com:3306/diamond?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
 #        username: adminuser
 #        password: Catfish123
-        url: jdbc:mysql://localhost:3306/questionair?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        url: jdbc:mysql://152.136.198.129:3306/wedding?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
         username: root
         password: 123
         type: com.alibaba.druid.pool.DruidDataSource
