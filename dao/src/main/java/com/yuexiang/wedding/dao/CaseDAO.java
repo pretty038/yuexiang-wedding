@@ -14,7 +14,7 @@ public interface CaseDAO {
     public List<Case> searchCaseList(@Param(value = "name") String name,@Param(value = "sortedColumn")String sortedColumn);
 
 
-    @Insert("insert into wedding.case (name,imageUrl,description,tags,price,liked,team,status,created,modified) values(#{name},#{imageUrl},#{description},#{tags},#{price},#{liked},#{team},#{status},now(),now())")
+    @Insert("insert into wedding.case (name,image_url,description,tags,price,liked,team,status,created,modified) values(#{name},#{imageUrl},#{description},#{tags},#{price},#{liked},#{team},#{status},now(),now())")
     public int addCase(Case ca);
 
 }
