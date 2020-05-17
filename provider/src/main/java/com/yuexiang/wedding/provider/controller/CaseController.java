@@ -33,7 +33,7 @@ public class CaseController {
 
     @RequestMapping(value = "/getappinfo")
     public AppInfo getAppInfo(){
-        return new AppInfo("眼镜超市","眼镜超市");
+        return new AppInfo("相约婚礼","相约婚礼");
     }
 
 
@@ -46,6 +46,11 @@ public class CaseController {
     @RequestMapping(value = "/caselist")
     public List<Case> searchCaseList(@RequestParam(value = "name")String name,@RequestParam(value = "sortedColumn")String sortedColumn){
         return caseService.searchCaseList(name,sortedColumn);
+    }
+
+    @RequestMapping(value = "/getcasedetail")
+    public Case getCaseById(long id){
+        return caseService.getCaseById(id);
     }
 
 

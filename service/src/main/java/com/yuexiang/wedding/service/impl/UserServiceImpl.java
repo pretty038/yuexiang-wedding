@@ -16,7 +16,7 @@ public class UserServiceImpl {
     @Autowired
     UserDAO userDAO;
 
-    @Cacheable(value = "30",key = "'User'+#user.openId")
+//    @Cacheable(value = "30",key = "'User'+#user.openId")
     public User getUser(User user){
         System.out.println(user.key());
         System.out.println("get user from mysql");
@@ -24,7 +24,7 @@ public class UserServiceImpl {
         return user1;
     }
 
-   @CachePut(value = "30",key = "'User'+#openId")
+//   @CachePut(value = "30",key = "'User'+#openId")
     public User updateMobile(String openId,String mobile){
        System.out.println("update Mobile");
        userDAO.updateMobile(openId,mobile);
@@ -37,12 +37,20 @@ public class UserServiceImpl {
         try{
         if(userDAO.getUser(user)==null){
             int i=userDAO.addUser(user);
-            if(i>0)return "add user success!";
-            else return "add user fail!";
+            if(i>0){
+                return "add user success!";
+            }
+            else {
+                return "add user fail!";
+            }
         }else{
             int i=userDAO.updateUser(user);
-            if(i>0)return "update user success!";
-            else return "update user fail";
+            if(i>0){
+                return "update user success!";
+            }
+            else {
+                return "update user fail";
+            }
         }
         }
         catch (Exception e){

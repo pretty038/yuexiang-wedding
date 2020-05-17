@@ -16,7 +16,7 @@ spring:
         name: ap
 #        url: jdbc:mysql://maisuosi.mysql.rds.aliyuncs.com:3306/diamond?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
 #        url: jdbc:mysql://localhost:3306/questionair?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
-        url: jdbc:mysql://localhost:3306/wedding?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        url: jdbc:mysql://152.136.198.129:3306/wedding?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
         username: test
         password: Ljl123456***
         type: com.alibaba.druid.pool.DruidDataSource

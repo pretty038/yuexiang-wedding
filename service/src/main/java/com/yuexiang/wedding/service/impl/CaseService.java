@@ -20,4 +20,8 @@ public class CaseService {
         return caseDAO.addCase(ca);
     }
 
+    public Case getCaseById(long id){
+        return caseDAO.getCaseById(id);
+    }
+
 }

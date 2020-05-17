@@ -13,7 +13,7 @@ public interface UserDAO {
     User getUser(User user);
 
     @Insert({
-            "Insert into user (open_id,mobile,nick_name,avatar_url,gender,city,province,country) values(#{openId},#{mobile},#{nickName},#{avatarUrl},#{gender},#{city},#{province},#{country})"
+            "Insert ignore into user (open_id,mobile,nick_name,avatar_url,gender,city,province,country) values(#{openId},#{mobile},#{nickName},#{avatarUrl},#{gender},#{city},#{province},#{country})"
     })
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     int addUser(User user);

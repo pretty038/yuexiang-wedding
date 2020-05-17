@@ -11,10 +11,17 @@ import java.util.List;
 @Component
 public interface CaseDAO {
     @Select("select * from wedding.case where name like '%${name}%' order by ${sortedColumn}")
-    public List<Case> searchCaseList(@Param(value = "name") String name,@Param(value = "sortedColumn")String sortedColumn);
+    List<Case> searchCaseList(@Param(value = "name") String name,@Param(value = "sortedColumn")String sortedColumn);
+
+    @Select("select * from wedding.case where id = #{id}")
+    Case getCaseById(@Param(value = "id") long id);
 
 
-    @Insert("insert into wedding.case (name,image_url,description,tags,price,liked,team,status,created,modified) values(#{name},#{imageUrl},#{description},#{tags},#{price},#{liked},#{team},#{status},now(),now())")
-    public int addCase(Case ca);
+    @Insert("insert ignore into wedding.case (name,image_url,description,tags,price,liked,team,status,created,modified) values(#{name},#{imageUrl},#{description},#{tags},#{price},#{liked},#{team},#{status},now(),now())")
+    int addCase(Case ca);
+
+
+
+
 
 }
