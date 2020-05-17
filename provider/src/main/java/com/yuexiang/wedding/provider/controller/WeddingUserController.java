@@ -1,5 +1,6 @@
 package com.yuexiang.wedding.provider.controller;
 
+import com.yuexiang.wedding.domain.model.CommonStatus;
 import com.yuexiang.wedding.domain.model.User;
 import com.yuexiang.wedding.service.impl.WeddingUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +25,14 @@ public class WeddingUserController {
          return weddingUserService.addUser(user);
      }
 
-    @RequestMapping(value = "/sendCode")
-     public String sendCode(@RequestParam(value = "mobile") String mobile){
-        return "{\"status\":\"SUCCESS\",\"msg\":\"send code success!\"}";
+    @RequestMapping(value = "/sendcode")
+     public CommonStatus sendCode(@RequestParam(value = "mobile") String mobile){
+        return new CommonStatus("SUCCESS","send code success!");
      }
 
     @RequestMapping(value = "/checkcode")
-    public String checkCode(@RequestParam(value = "mobile") String mobile,String code){
-        return "{\"status\":\"SUCCESS\",\"msg\":\"check code success!\"}";
+    public CommonStatus checkCode(@RequestParam(value = "mobile") String mobile,String code){
+        return new CommonStatus("SUCCESS","check code success!");
     }
 
 
