@@ -12,6 +12,11 @@ public interface UserDAO {
     })
     User getUser(User user);
 
+    @Select({
+            "SELECT * FROM user WHERE open_id = #{openId} limit 1"
+    })
+    User getUserByOpenId(@Param("openId") String openId);
+
     @Insert({
             "Insert ignore into user (open_id,mobile,nick_name,avatar_url,gender,city,province,country) values(#{openId},#{mobile},#{nickName},#{avatarUrl},#{gender},#{city},#{province},#{country})"
     })

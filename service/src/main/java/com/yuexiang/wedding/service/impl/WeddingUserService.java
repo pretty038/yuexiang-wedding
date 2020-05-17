@@ -12,10 +12,11 @@ public class WeddingUserService {
     UserDAO userDAO;
 
     public User getUserByOpenId(String openid){
-        User user=new User();
-        user.setOpenId(openid);
-        User user1=userDAO.getUser(user);
-        return user1;
+        User user=userDAO.getUserByOpenId(openid);
+        if(user==null){
+            return new User();
+        }
+        return user;
     }
 
     public int addUser(User user){
