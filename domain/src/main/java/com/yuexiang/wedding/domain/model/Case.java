@@ -15,10 +15,10 @@ public class Case {
     String imageUrl;
     String description;
     String tags;
+    double initPrice;
     double price;
     int liked;
     long view;
     String team;
     int status;
-
 }

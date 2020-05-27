@@ -11,8 +11,8 @@ public class WeddingUserService {
     @Autowired
     UserDAO userDAO;
 
-    public User getUserByOpenId(String openid){
-        User user=userDAO.getUserByOpenId(openid);
+    public User getUserByOpenId(String openId){
+        User user=userDAO.getUserByOpenId(openId);
         if(user==null){
             return new User();
         }
