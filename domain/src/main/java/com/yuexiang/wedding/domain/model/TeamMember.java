@@ -6,20 +6,18 @@ import lombok.Data;
 public class TeamMember {
     long id;
     String name;
+    int age;
+    String city;
     /**
      * 人员头像
      */
-    String avatar_url;
+    String avatarUrl;
     String description;
     String role;
-    /**
-     * 收藏数,
-     */
     int liked;
-    /**
-     * 浏览数
-     */
     int view;
+    int orderNumber;
+    int bookNumber;
     /**
      * '状态，1有效，0无效',
      */

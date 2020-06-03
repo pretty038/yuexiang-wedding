@@ -1,7 +1,6 @@
 package com.yuexiang.wedding.dao;
 
 import com.yuexiang.wedding.domain.model.Case;
-import com.yuexiang.wedding.domain.model.TeamMember;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -30,9 +29,6 @@ public interface CaseDAO {
 
     @Select("select * from `case` where id in(select object_id from user_liked where open_id=#{openId} and status=1 and object_type=1)")
     List<Case> getLikedCasesByUser(@Param(value = "openId")String openId);
-
-    @Select("select * from team_member where id in(select object_id from user_liked where open_id=#{openId} and status=1 and object_type=2)")
-    List<TeamMember> getLikedTeamMemberByUser(@Param(value = "openId")String openId);
 
 
 

@@ -1,29 +1,13 @@
 package com.yuexiang.wedding.provider.controller;
 
-import com.yuexiang.wedding.domain.model.AppInfo;
-import com.yuexiang.wedding.domain.model.Case;
-import com.yuexiang.wedding.domain.model.Comment;
-import com.yuexiang.wedding.domain.model.Image;
-import com.yuexiang.wedding.service.impl.CaseService;
-import com.yuexiang.wedding.service.impl.CommentService;
-import com.yuexiang.wedding.service.impl.FileService;
-import com.yuexiang.wedding.service.impl.ImageSrevice;
+import com.yuexiang.wedding.domain.model.*;
+import com.yuexiang.wedding.service.impl.*;
 import lombok.Cleanup;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -36,7 +20,7 @@ public class CaseController {
 
     @RequestMapping(value = "/getappinfo")
     public AppInfo getAppInfo(){
-        return new AppInfo("相约婚礼","相约婚礼");
+        return new AppInfo("悦享婚礼","悦享婚礼");
     }
 
 
@@ -45,6 +29,9 @@ public class CaseController {
 
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    TeamMemberService teamMemberService;
 
     @RequestMapping(value = "/addcase")
     public int addCase(Case weddingCase){return caseService.addcase(weddingCase);}
@@ -77,7 +64,30 @@ public class CaseController {
     @RequestMapping(value = "/getcomment")
     public List<Comment> getComment(@Param(value = "objectId")int objectId,@Param(value = "objectType") int objectType){
         return commentService.getComment(objectId,objectType);
-    };
+    }
+
+    @RequestMapping(value = "/addTeamMember")
+    public int addTeamMember(TeamMember teamMember){
+        return teamMemberService.addTeamMember(teamMember);
+    }
+
+    @RequestMapping(value = "/getTeamMemberByIds")
+    public List<TeamMember> getTeamMemberByIds(@Param(value = "ids")String ids){
+        return teamMemberService.getTeamMemberByIds(ids);
+    }
+
+
+    @RequestMapping(value = "/likeTeamMember")
+    public int likeTeamMember(@Param(value = "teamMemberId")int teamMemberId,@Param(value = "status")int status,@Param(value = "openId")String openId){
+        return teamMemberService.updateLiked( teamMemberId, status, openId);
+    }
+
+    @RequestMapping(value = "/getLikeTeamMember")
+    public List<TeamMember> getLikeTeamMember(@Param(value = "openId")String openId){
+        return teamMemberService.getLikedTeamMemberByUser(openId);
+    }
+
+
 
 
 
