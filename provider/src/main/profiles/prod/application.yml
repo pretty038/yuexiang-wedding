@@ -11,6 +11,12 @@ jetty:
       minThreads: 10
       idleTimeout: 30000
 
+https:
+  port: 8777
+  keystore-password: 663ii07gu8
+  keystore: provider/src/main/resources/yuexiangculture.com.jks
+  keystore-type: JKS
+
 spring:
     datasource:
         name: ap
