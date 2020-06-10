@@ -14,10 +14,6 @@ import java.util.List;
 @RequestMapping("/wedding")
 public class CaseController {
 
-
-
-
-
     @RequestMapping(value = "/getappinfo")
     public AppInfo getAppInfo(){
         return new AppInfo("悦享婚礼","悦享婚礼");
@@ -32,6 +28,9 @@ public class CaseController {
 
     @Autowired
     TeamMemberService teamMemberService;
+
+    @Autowired
+    PriceService priceService;
 
     @RequestMapping(value = "/addcase")
     public int addCase(Case weddingCase){return caseService.addcase(weddingCase);}
@@ -85,6 +84,16 @@ public class CaseController {
     @RequestMapping(value = "/getLikeTeamMember")
     public List<TeamMember> getLikeTeamMember(@Param(value = "openId")String openId){
         return teamMemberService.getLikedTeamMemberByUser(openId);
+    }
+
+    @RequestMapping(value = "/getPriceByCase")
+    public List<Price> getPriceByCase(@Param(value = "caseId")int caseId){
+        return priceService.getPriceByCase(caseId);
+    }
+
+    @RequestMapping(value = "/addPriceToCase")
+    public int addPriceToCase(Price price){
+        return priceService.addPriceDeatil(price);
     }
 
 

@@ -17,6 +17,12 @@
             <artifactId>wedding.domain</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.69</version>
+        </dependency>
+
     </dependencies>
 
     <build>
