@@ -2,7 +2,7 @@ package com.yuexiang.wedding.service.impl;
 
 import com.yuexiang.wedding.dao.CaseDAO;
 import com.yuexiang.wedding.dao.CommentDAO;
-import com.yuexiang.wedding.domain.enums.ObjectTypeEnum;
+import com.yuexiang.wedding.dao.TeamMemberDAO;
 import com.yuexiang.wedding.domain.model.Case;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,11 @@ public class CaseService {
     private CaseDAO caseDAO;
 
     @Autowired
+    private TeamMemberDAO teamMemberDAO;
+
+    @Autowired
     private CommentDAO commentDAO;
+
 
     /**
      * 案例列表
@@ -47,15 +51,24 @@ public class CaseService {
 
     /**
      * 点收藏(或取消收藏)
-     * @param caseId
+     * @param objectId
      * @param status
      * @param openId
      * @return
      */
-    public int updateLiked(int caseId,int status,String openId){
-        int cnt=commentDAO.updateUserLiked(openId,caseId, ObjectTypeEnum.WEDDINGCASE.getCode(),status);
+    public int updateLiked(int objectId,int objectType,int status,String openId){
+        int cnt=commentDAO.updateUserLiked(openId,objectId, objectType,status);
         if(cnt>0){
-            caseDAO.updateLiked(caseId,status);
+            switch (objectType){
+                case 1:
+                    caseDAO.updateLiked(objectId,status);
+                    break;
+                case 2:
+                    teamMemberDAO.updateLiked(objectId,status);
+                    break;
+                default:
+                    break;
+            }
         }
         return cnt;
     }

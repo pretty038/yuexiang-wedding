@@ -15,7 +15,7 @@ public interface TeamMemberDAO {
 
 
 
-    @Insert("insert ignore into team_member (name,age,city,avatar_url,description,role,liked,view,order_number,book_number,status,created,modified) values(#{name},#{age},#{city},#{avatarUrl},#{description},#{role},#{liked},#{view},#{orderNumber},#{bookNumber},#{status},now(),now())")
+    @Insert("insert ignore into team_member (name,age,gender,city,avatar_url,description,role,liked,view,order_number,book_number,status,created,modified) values(#{name},#{age},#{gender},#{city},#{avatarUrl},#{description},#{role},#{liked},#{view},#{orderNumber},#{bookNumber},#{status},now(),now())")
     int addTeamMember(TeamMember teamMember);
 
     @Select("select * from team_member where id in(${teamMemberIds})")

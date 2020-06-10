@@ -24,5 +24,8 @@ public interface CommentDAO {
     List<Comment> getCommentByObject(@Param(value = "objectId") int objectId,@Param(value = "objectType") int objectType);
 
 
+    @Select("select * from user_comment where object_id=#{initCommentId} and object_type=3 and status=1")
+    List<Comment> getCommentReply(@Param(value = "initCommentId") int initCommentId);
+
 
 }

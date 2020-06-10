@@ -31,4 +31,16 @@ public class CommentService {
     public List<Comment> getComment(int objectId, int objectType){
         return commentDAO.getCommentByObject(objectId,objectType);
     }
+
+
+    /**
+     * 获取某条评论的回复
+     * @param initCommentId
+     * @return
+     */
+    public List<Comment> getCommentReply(int initCommentId){
+        return commentDAO.getCommentReply(initCommentId);
+    }
+
+
 }

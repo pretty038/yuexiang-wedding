@@ -7,6 +7,7 @@ public class TeamMember {
     long id;
     String name;
     int age;
+    int gender;
     String city;
     /**
      * 人员头像

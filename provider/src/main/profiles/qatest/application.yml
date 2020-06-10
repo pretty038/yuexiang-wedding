@@ -14,7 +14,7 @@ jetty:
 https:
   port: 8777
   keystore-password: 663ii07gu8
-  keystore: /home/ljl/code/yuexiangculture.com.jks
+  keystore: provider/src/main/resources/yuexiangculture.com.jks
   keystore-type: JKS
 
 spring:
