@@ -38,4 +38,7 @@ public class TeamMemberService {
         return teamMemberDAO.getLikedTeamMemberByUser(openId);
     }
 
+
+
+
 }

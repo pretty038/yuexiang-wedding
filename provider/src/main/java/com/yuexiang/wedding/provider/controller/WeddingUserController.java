@@ -1,5 +1,6 @@
 package com.yuexiang.wedding.provider.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yuexiang.wedding.domain.model.CommonStatus;
 import com.yuexiang.wedding.domain.model.User;
 import com.yuexiang.wedding.service.impl.WeddingUserService;
@@ -35,6 +36,10 @@ public class WeddingUserController {
         return new CommonStatus("SUCCESS","check code success!");
     }
 
+    @RequestMapping(value = "/getOpenId")
+    public JSONObject getOpenId(@RequestParam(value = "code") String code){
+        return weddingUserService.getOpenId(code);
+    }
 
 
 

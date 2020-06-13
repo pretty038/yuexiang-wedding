@@ -54,7 +54,7 @@ public class HttpClientUtil {
 
 
     public static void main(String[] args) {
-        System.out.println(doGet("https://yuexiangculture.com:8777/wedding/wedding/getappinfo"));
+        System.out.println(doGet("https://api.weixin.qq.com/sns/jscode2session?appid=wx9222a867ef776cba&secret=2433a35f36518cd5d7007919ce355475&js_code=023wbU1V1cXPwZ0J3q2V1V9R1V1wbU1c&grant_type=authorization_code"));
     }
 
 }
