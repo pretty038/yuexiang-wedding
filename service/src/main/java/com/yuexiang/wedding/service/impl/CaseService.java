@@ -4,10 +4,14 @@ import com.yuexiang.wedding.dao.CaseDAO;
 import com.yuexiang.wedding.dao.CommentDAO;
 import com.yuexiang.wedding.dao.TeamMemberDAO;
 import com.yuexiang.wedding.domain.model.Case;
+import com.yuexiang.wedding.tools.helper.StringUtil;
+import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CaseService {
@@ -28,7 +32,22 @@ public class CaseService {
      * @return
      */
     public List<Case> searchCaseList(String name,String sortedColumn){
-        return caseDAO.searchCaseList(name,sortedColumn);
+        List<Case> cases= caseDAO.searchCaseList(name,sortedColumn);
+        cases.stream().forEach(x->{
+            String team=x.getTeam().replaceAll("\\$\\{","").replaceAll("}","");
+            x.setTeam(team);
+        });
+        return cases;
+    }
+
+
+    public List<Case> getCaseListByTeamMember(int teamMemberId){
+        List<Case> cases= caseDAO.getCaseListByTeamMember(teamMemberId);
+        cases.stream().forEach(x->{
+            String team=x.getTeam().replaceAll("\\$\\{","").replaceAll("}","");
+            x.setTeam(team);
+        });
+        return cases;
     }
 
     /**
@@ -37,6 +56,8 @@ public class CaseService {
      * @return
      */
     public int addcase(Case weddingCase){
+        String[] team=weddingCase.getTeam().split(",");
+        weddingCase.setTeam(StringUtils.join(Arrays.stream(team).map(x->"${"+x+"}").collect(Collectors.toList()),','));
         return caseDAO.addCase(weddingCase);
     }
 
@@ -46,7 +67,9 @@ public class CaseService {
      * @return
      */
     public Case getCaseById(long id){
-        return caseDAO.getCaseById(id);
+         Case c= caseDAO.getCaseById(id);
+         c.setTeam(c.getTeam().replaceAll("\\$\\{","").replaceAll("}",""));
+         return c;
     }
 
     /**
@@ -79,7 +102,12 @@ public class CaseService {
      * @return
      */
     public List<Case> getLikedCasesByUser(String openId){
-        return caseDAO.getLikedCasesByUser(openId);
+        List<Case> cases= getLikedCasesByUser(openId);
+        cases.stream().forEach(x->{
+            String team=x.getTeam().replaceAll("\\$\\{","").replaceAll("}","");
+            x.setTeam(team);
+        });
+        return cases;
     }
 
 

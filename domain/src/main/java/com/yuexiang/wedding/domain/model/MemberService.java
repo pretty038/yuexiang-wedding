@@ -9,17 +9,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Case {
-    long id;
-    String name;
-    String imageUrl;
+public class MemberService {
+    int id;
+    int memberId;
+    String serviceName;
     String description;
-    String tags;
-    double initPrice;
     double price;
-    int liked;
-    long view;
-    String team;
+    String unit;
     int status;
-
 }

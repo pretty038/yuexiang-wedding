@@ -14,6 +14,9 @@ public interface CaseDAO {
     @Select("select * from wedding.case where name like '%${name}%' or tags like '%${name}%' order by ${sortedColumn}")
     List<Case> searchCaseList(@Param(value = "name") String name,@Param(value = "sortedColumn")String sortedColumn);
 
+    @Select("select * from wedding.case where team like '%${teamMemberId}%' order by liked desc")
+    List<Case> getCaseListByTeamMember(@Param(value = "teamMemberId") Integer teamMemberId);
+
     @Select("select * from wedding.case where id = #{id}")
     Case getCaseById(@Param(value = "id") long id);
 

@@ -1,6 +1,7 @@
 package com.yuexiang.wedding.provider.controller;
 
 import com.google.common.collect.Lists;
+import com.yuexiang.wedding.dao.MemberSreviceDAO;
 import com.yuexiang.wedding.domain.model.*;
 import com.yuexiang.wedding.service.impl.*;
 import lombok.Cleanup;
@@ -37,6 +38,7 @@ public class CaseController {
     @Autowired
     PriceService priceService;
 
+
     @RequestMapping(value = "/addcase")
     public int addCase(Case weddingCase){return caseService.addcase(weddingCase);}
 
@@ -48,6 +50,12 @@ public class CaseController {
     @RequestMapping(value = "/getcasedetail")
     public Case getCaseById(@Param(value = "id") long id){
         return caseService.getCaseById(id);
+    }
+
+
+    @RequestMapping(value = "/getCaseByTeamMember")
+    public List<Case> getCaseByTeamMember(@Param(value = "teamMemberId") Integer teamMemberId){
+        return caseService.getCaseListByTeamMember(teamMemberId);
     }
 
     @RequestMapping(value = "/clicklike")
@@ -114,6 +122,17 @@ public class CaseController {
     @RequestMapping(value = "/addPriceToCase")
     public int addPriceToCase(Price price){
         return priceService.addPriceDeatil(price);
+    }
+
+
+    @RequestMapping(value = "/getMemberServiceByMemberId")
+    public List<MemberService> getMemberServiceByMemberId(@Param(value = "memberId") Integer memberId){
+        return teamMemberService.getMemberServiceByMemberId(memberId);
+    }
+
+    @RequestMapping(value = "/addMemberService")
+    public int addMemberServiceByMemberId(MemberService memberService){
+        return teamMemberService.addMemberServiceByMemberId(memberService);
     }
 
 

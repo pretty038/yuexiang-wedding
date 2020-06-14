@@ -1,8 +1,10 @@
 package com.yuexiang.wedding.service.impl;
 
 import com.yuexiang.wedding.dao.CommentDAO;
+import com.yuexiang.wedding.dao.MemberSreviceDAO;
 import com.yuexiang.wedding.dao.TeamMemberDAO;
 import com.yuexiang.wedding.domain.enums.ObjectTypeEnum;
+import com.yuexiang.wedding.domain.model.MemberService;
 import com.yuexiang.wedding.domain.model.TeamMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class TeamMemberService {
 
     @Autowired
     CommentDAO commentDAO;
+
+    @Autowired
+    MemberSreviceDAO memberSreviceDAO;
 
     public int addTeamMember(TeamMember teamMember){
         return teamMemberDAO.addTeamMember(teamMember);
@@ -38,7 +43,12 @@ public class TeamMemberService {
         return teamMemberDAO.getLikedTeamMemberByUser(openId);
     }
 
+    public List<MemberService> getMemberServiceByMemberId(int memberId){
+        return memberSreviceDAO.getMemberServiceByMemberId(memberId);
+    }
 
 
-
+    public int addMemberServiceByMemberId(MemberService memberService) {
+        return memberSreviceDAO.addMemberService(memberService);
+    }
 }
