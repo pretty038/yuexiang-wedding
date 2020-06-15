@@ -102,7 +102,8 @@ public class CaseService {
      * @return
      */
     public List<Case> getLikedCasesByUser(String openId){
-        List<Case> cases= getLikedCasesByUser(openId);
+        System.out.println(openId);
+        List<Case> cases= caseDAO.getLikedCasesByUser(openId);
         cases.stream().forEach(x->{
             String team=x.getTeam().replaceAll("\\$\\{","").replaceAll("}","");
             x.setTeam(team);
